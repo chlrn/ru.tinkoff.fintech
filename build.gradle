@@ -1,39 +1,36 @@
 plugins {
     id 'java'
-    id 'application'
-
 }
-
-
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
-
-sourceCompatibility = '17' // Укажите вашу версию Java
-
+sourceCompatibility = '17'
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-parameters'
+}
 repositories {
     mavenCentral()
 }
-
 dependencies {
-    // Зависимости для Jackson (JSON-парсинг)
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
+    implementation group: 'org.springframework', name: 'spring-aspects', version: '6.1.13'
+// https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api
+    implementation group: 'jakarta.annotation', name: 'jakarta.annotation-api', version: '3.0.0'
 
-    // SLF4J (Логгирование)
-    implementation 'org.slf4j:slf4j-api:2.0.7'
-    implementation 'org.slf4j:slf4j-simple:2.0.7' // Если используете простой вывод логов в консоль
+    implementation 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+   // implementation 'org.slf4j:slf4j-api:2.0.7'
+    //implementation 'org.slf4j:slf4j-simple:2.0.7' // Простая реализация логгера
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.3.4'
 
-    // Lombok (для генерации геттеров/сеттеров)
-    compileOnly 'org.projectlombok:lombok:1.18.28'
-    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    // JUnit 5 dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
-    // JUnit для тестирования (если нужно)
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    // Optional: Include a dependency for assertions (e.g., AssertJ)
+    testImplementation 'org.assertj:assertj-core:3.22.0'
+
 }
-
 test {
     useJUnitPlatform()
 }
