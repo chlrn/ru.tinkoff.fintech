@@ -1,4 +1,4 @@
-package com.example.rutinkofffintech.TASK_5.logging;
+package com.example.rutinkofffintech.logging;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

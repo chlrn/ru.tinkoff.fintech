@@ -1,4 +1,4 @@
-package com.example.rutinkofffintech.TASK_5.datastore;
+package com.example.rutinkofffintech.datastore;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,27 +12,46 @@ public class DataStore<T> {
     }
 
     public void save(String id, T entity) {
-        if (id == null || entity == null) {
-            throw new IllegalArgumentException("ID and entity cannot be null");
+        if (id == null) {
+            throw new IllegalArgumentException("ID cannot be null");
+        }
+        if (entity == null) {
+            throw new IllegalArgumentException("Entity cannot be null");
         }
         store.put(id, entity);
     }
 
     public void update(String id, T entity) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID cannot be null");
+        }
+        if (entity == null) {
+            throw new IllegalArgumentException("Entity cannot be null");
+        }
         if (!store.containsKey(id)) {
             throw new IllegalArgumentException("No entity found with the given ID: " + id);
         }
         store.put(id, entity);
     }
 
+
     public void delete(String id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID cannot be null");
+        }
         if (!store.containsKey(id)) {
             throw new IllegalArgumentException("No entity found with the given ID: " + id);
         }
         store.remove(id);
     }
+    public boolean exists(String id) {
+        return store.containsKey(id);
+    }
+
+
 
     public Map<String, T> getAll() {
-        return Map.copyOf(store); // Возвращает неизменяемую копию
+        return new ConcurrentHashMap<>(store); // Возвращаем изменяемую копию
+
     }
 }

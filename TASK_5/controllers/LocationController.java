@@ -1,7 +1,9 @@
-package com.example.rutinkofffintech.TASK_5.controllers;
+package com.example.rutinkofffintech.controllers;
 
-import com.example.rutinkofffintech.TASK_5.datastore.DataStore;
-import com.example.rutinkofffintech.TASK_5.dto.Location;
+import com.example.rutinkofffintech.datastore.DataStore;
+import com.example.rutinkofffintech.dto.Location;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
@@ -15,28 +17,55 @@ public class LocationController {
         this.locationStore = locationStore;
     }
 
+
     @GetMapping
     public Map<String, Location> getAllLocations() {
         return locationStore.getAll();
     }
 
     @GetMapping("/{id}")
-    public Location getLocation(@PathVariable String id) {
-        return locationStore.get(id);
+    public ResponseEntity<Location> getLocation(@PathVariable String id) {
+        Location location = locationStore.get(id);
+        if (location == null) {
+            return ResponseEntity.notFound().build(); // Возвращаем 404
+        }
+        return ResponseEntity.ok(location); // Возвращаем 200 и объект
     }
+
 
     @PostMapping
-    public void createLocation(@RequestBody Location location) {
+    public ResponseEntity<Void> createLocation(@RequestBody Location location) {
+        if (location == null || location.getId() == null || location.getName() == null || location.getName().isEmpty()) {
+            return ResponseEntity.badRequest().build(); // 400 Bad Request
+        }
+        if (locationStore.exists(location.getId())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // 409 Conflict
+        }
         locationStore.save(location.getId(), location);
+        return ResponseEntity.status(HttpStatus.CREATED).build(); // 201 Created
     }
+
 
     @PutMapping("/{id}")
-    public void updateLocation(@PathVariable String id, @RequestBody Location location) {
+    public ResponseEntity<Void> updateLocation(@PathVariable String id, @RequestBody Location location) {
+        if (id == null || id.isEmpty() || location == null || location.getName() == null || location.getName().isEmpty()) {
+            return ResponseEntity.badRequest().build(); // 400 Bad Request
+        }
+        if (!locationStore.exists(id)) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        }
         locationStore.update(id, location);
+        return ResponseEntity.ok().build(); // 200 OK
     }
 
+
     @DeleteMapping("/{id}")
-    public void deleteLocation(@PathVariable String id) {
+    public ResponseEntity<Void> deleteLocation(@PathVariable String id) {
+        if (!locationStore.exists(id)) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        }
         locationStore.delete(id);
+        return ResponseEntity.noContent().build(); // 204 No Content
     }
+
 }
