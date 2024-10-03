@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataInitializer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ru-tinkoff-fintech</a> &gt; <a href="index.source.html" class="el_package">com.example.rutinkofffintech.TASK_5.init</a> &gt; <span class="el_source">DataInitializer.java</span></div><h1>DataInitializer.java</h1><pre class="source lang-java linenums">package com.example.rutinkofffintech.TASK_5.init;
+
+import com.example.rutinkofffintech.TASK_5.datastore.DataStore;
+import com.example.rutinkofffintech.TASK_5.dto.Category;
+import com.example.rutinkofffintech.TASK_5.dto.Location;
+import com.example.rutinkofffintech.TASK_5.logging.LogExecutionTime;
+import jakarta.annotation.PostConstruct;
+import lombok.Data;
+import lombok.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+
+@Component
+<span class="nc bnc" id="L16" title="All 48 branches missed.">@Data</span>
+public class DataInitializer {
+
+<span class="nc" id="L19">    private final DataStore&lt;Category&gt; categoryStore;</span>
+<span class="nc" id="L20">    private final DataStore&lt;Location&gt; locationStore;</span>
+<span class="nc" id="L21">    private final RestTemplate restTemplate;</span>
+
+   // @Value(&quot;${categories.url}&quot;)
+    @org.springframework.beans.factory.annotation.Value(&quot;${categories.url}&quot;)
+<span class="nc" id="L25">    private String categoriesUrl;</span>
+   // @Value(&quot;${locations.url}&quot;)
+    @org.springframework.beans.factory.annotation.Value(&quot;${locations.url}&quot;)
+
+<span class="nc" id="L29">    private String locationsUrl;</span>
+
+<span class="nc" id="L31">    private int currentLocationId = 1; // Счетчик для ID локаций</span>
+
+<span class="nc" id="L33">    public DataInitializer(DataStore&lt;Category&gt; categoryStore, DataStore&lt;Location&gt; locationStore, RestTemplate restTemplate) {</span>
+<span class="nc" id="L34">        this.categoryStore = categoryStore;</span>
+<span class="nc" id="L35">        this.locationStore = locationStore;</span>
+<span class="nc" id="L36">        this.restTemplate = restTemplate;</span>
+<span class="nc" id="L37">        System.setProperty(&quot;https.protocols&quot;, &quot;TLSv1.2&quot;);</span>
+
+<span class="nc" id="L39">    }</span>
+
+    @LogExecutionTime
+    @PostConstruct
+    public void init() {
+<span class="nc" id="L44">        loadCategories();</span>
+<span class="nc" id="L45">        loadLocations();</span>
+<span class="nc" id="L46">    }</span>
+
+    private void loadCategories() {
+<span class="nc" id="L49">        String url = &quot;http://localhost:&lt;port&gt;/public-api/v1.4/place-categories&quot;; // Замените &lt;port&gt; на порт WireMock</span>
+        try {
+<span class="nc" id="L51">            Category[] categories = restTemplate.getForObject(categoriesUrl, Category[].class);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (categories != null) {</span>
+<span class="nc" id="L53">                Arrays.stream(categories)</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">                        .filter(category -&gt; category.getId() != null)</span>
+<span class="nc" id="L55">                        .forEach(category -&gt; categoryStore.save(category.getId().toString(), category));</span>
+            }
+<span class="nc" id="L57">        } catch (Exception e) {</span>
+            // Логирование ошибки
+<span class="nc" id="L59">            System.err.println(&quot;Ошибка при загрузке категорий: &quot; + e.getMessage());</span>
+<span class="nc" id="L60">            e.printStackTrace();</span>
+<span class="nc" id="L61">        }</span>
+<span class="nc" id="L62">    }</span>
+
+    private void loadLocations() {
+<span class="nc" id="L65">        String url = &quot;http://localhost:&lt;port&gt;/public-api/v1.4/locations/&quot;; // Замените &lt;port&gt; на порт WireMock</span>
+        try {
+<span class="nc" id="L67">            Location[] locations = restTemplate.getForObject(locationsUrl, Location[].class);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            if (locations != null) {</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">                for (Location location : locations) {</span>
+<span class="nc" id="L70">                    location.setId(String.valueOf(currentLocationId));</span>
+<span class="nc" id="L71">                    currentLocationId++;</span>
+<span class="nc" id="L72">                    locationStore.save(location.getId(), location);</span>
+                }
+            }
+<span class="nc" id="L75">        } catch (Exception e) {</span>
+            // Логирование ошибки
+<span class="nc" id="L77">            System.err.println(&quot;Ошибка при загрузке локаций: &quot; + e.getMessage());</span>
+<span class="nc" id="L78">            e.printStackTrace();</span>
+<span class="nc" id="L79">        }</span>
+<span class="nc" id="L80">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

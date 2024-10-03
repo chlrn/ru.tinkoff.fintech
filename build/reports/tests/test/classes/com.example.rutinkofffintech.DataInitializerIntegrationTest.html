@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - DataInitializerIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>DataInitializerIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.rutinkofffintech.html">com.example.rutinkofffintech</a> &gt; DataInitializerIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.001s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="initializationError"></a>
+<h3 class="failures">initializationError</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'void org.apache.hc.core5.http.impl.io.DefaultHttpRequestWriterFactory.&lt;init&gt;(org.apache.hc.core5.http.config.Http1Config)'
+	at org.apache.hc.client5.http.impl.io.ManagedHttpClientConnectionFactory.&lt;init&gt;(ManagedHttpClientConnectionFactory.java:86)
+	at org.apache.hc.client5.http.impl.io.ManagedHttpClientConnectionFactory.&lt;init&gt;(ManagedHttpClientConnectionFactory.java:105)
+	at org.apache.hc.client5.http.impl.io.ManagedHttpClientConnectionFactory.&lt;init&gt;(ManagedHttpClientConnectionFactory.java:120)
+	at org.apache.hc.client5.http.impl.io.ManagedHttpClientConnectionFactory.&lt;init&gt;(ManagedHttpClientConnectionFactory.java:127)
+	at org.apache.hc.client5.http.impl.io.ManagedHttpClientConnectionFactory.&lt;init&gt;(ManagedHttpClientConnectionFactory.java:131)
+	at org.apache.hc.client5.http.impl.io.ManagedHttpClientConnectionFactory.&lt;clinit&gt;(ManagedHttpClientConnectionFactory.java:66)
+	at com.github.tomakehurst.wiremock.http.HttpClientFactory.createClient(HttpClientFactory.java:80)
+	at com.github.tomakehurst.wiremock.http.HttpClientFactory.createClient(HttpClientFactory.java:172)
+	at com.github.tomakehurst.wiremock.http.HttpClientFactory.createClient(HttpClientFactory.java:237)
+	at com.github.tomakehurst.wiremock.client.HttpAdminClient.&lt;init&gt;(HttpAdminClient.java:130)
+	at com.github.tomakehurst.wiremock.client.WireMock.&lt;init&gt;(WireMock.java:120)
+	at com.github.tomakehurst.wiremock.client.WireMockBuilder.build(WireMockBuilder.java:89)
+	at com.github.tomakehurst.wiremock.client.WireMock.configureFor(WireMock.java:162)
+	at com.example.rutinkofffintech.DataInitializerIntegrationTest.setUp(DataInitializerIntegrationTest.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:766)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptLifecycleMethod(TimeoutExtension.java:128)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptBeforeAllMethod(TimeoutExtension.java:70)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllMethods$14(ClassBasedTestDescriptor.java:412)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllMethods(ClassBasedTestDescriptor.java:410)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:216)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:85)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:148)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:124)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:63)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
+	at jdk.proxy2/jdk.proxy2.$Proxy6.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:198)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:130)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:101)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:61)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">initializationError</td>
+<td class="failures">0.001s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>16:43:02.739 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [DataInitializerIntegrationTest]: using SpringBootContextLoader
+16:43:02.754 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.rutinkofffintech.DataInitializerIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+16:43:02.755 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.rutinkofffintech.DataInitializerIntegrationTest]: DataInitializerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:43:02.804 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [DataInitializerIntegrationTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+16:43:02.938 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/aleksandralebedeva-preobrazenskaa/Desktop/ru-tinkoff-fintech/build/classes/java/main/com/example/rutinkofffintech/Main.class]
+16:43:02.941 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.rutinkofffintech.Main for test class com.example.rutinkofffintech.DataInitializerIntegrationTest
+16:43:03.114 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+16:43:03.116 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+16:43:03.118 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [DataInitializerIntegrationTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener, StubRunnerWireMockTestExecutionListener, WireMockTestExecutionListener]
+16:43:03.119 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [DataInitializerIntegrationTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.0)
+
+2024-10-01T16:43:03.539+04:00  INFO 35823 --- [    Test worker] c.e.r.DataInitializerIntegrationTest     : Starting DataInitializerIntegrationTest using Java 17.0.8 with PID 35823 (started by aleksandralebedeva-preobrazenskaa in /Users/aleksandralebedeva-preobrazenskaa/Desktop/ru-tinkoff-fintech)
+2024-10-01T16:43:03.540+04:00  INFO 35823 --- [    Test worker] c.e.r.DataInitializerIntegrationTest     : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-10-01T16:43:05.851+04:00  INFO 35823 --- [    Test worker] c.e.r.DataInitializerIntegrationTest     : Started DataInitializerIntegrationTest in 2.679 seconds (process running for 4.659)
+2024-10-01T16:43:06.769+04:00  WARN 35823 --- [    Test worker] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: &quot;Set-Cookie: sessionid=5o09aipavaw9rmmu0s42g9j2hak32mz3; expires=Fri, 26 Sep 2025 12:43:06 GMT; HttpOnly; Max-Age=31104000; Path=/; SameSite=Lax&quot;. Invalid 'expires' attribute: Fri, 26 Sep 2025 12:43:06 GMT
+2024-10-01T16:43:07.094+04:00  WARN 35823 --- [    Test worker] o.a.h.c.protocol.ResponseProcessCookies  : Invalid cookie header: &quot;Set-Cookie: sessionid=haxkcq43sxgigs2essungofrx34nfpnr; expires=Fri, 26 Sep 2025 12:43:07 GMT; HttpOnly; Max-Age=31104000; Path=/; SameSite=Lax&quot;. Invalid 'expires' attribute: Fri, 26 Sep 2025 12:43:07 GMT
+2024-10-01T16:43:07.102+04:00  INFO 35823 --- [    Test worker] c.e.r.logging.LoggingAspect              : void com.example.rutinkofffintech.init.DataInitializer.init() executed in 1233ms
+2024-10-01T16:43:07.194+04:00  INFO 35823 --- [    Test worker] org.testcontainers.images.PullPolicy     : Image pull policy will be performed by: DefaultPullPolicy()
+2024-10-01T16:43:07.201+04:00  INFO 35823 --- [    Test worker] o.t.utility.ImageNameSubstitutor         : Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-10-01T16:43:07.216+04:00  INFO 35823 --- [    Test worker] org.testcontainers.DockerClientFactory   : Testcontainers version: 1.20.2
+2024-10-01T16:43:08.222+04:00  INFO 35823 --- [    Test worker] o.t.d.DockerClientProviderStrategy       : Found Docker environment with Docker accessed via Unix socket (/Users/aleksandralebedeva-preobrazenskaa/.docker/run/docker.sock)
+2024-10-01T16:43:08.224+04:00  INFO 35823 --- [    Test worker] org.testcontainers.DockerClientFactory   : Docker host IP address is localhost
+2024-10-01T16:43:08.264+04:00  INFO 35823 --- [    Test worker] org.testcontainers.DockerClientFactory   : Connected to docker: 
+  Server Version: 27.0.3
+  API Version: 1.46
+  Operating System: Docker Desktop
+  Total Memory: 3922 MB
+  Labels: 
+    com.docker.desktop.address=unix:///Users/aleksandralebedeva-preobrazenskaa/Library/Containers/com.docker.docker/Data/docker-cli.sock
+2024-10-01T16:43:08.324+04:00  INFO 35823 --- [    Test worker] tc.testcontainers/ryuk:0.9.0             : Creating container for image: testcontainers/ryuk:0.9.0
+2024-10-01T16:43:08.348+04:00  INFO 35823 --- [    Test worker] o.t.utility.RegistryAuthLocator          : Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.9.0, configFile: /Users/aleksandralebedeva-preobrazenskaa/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Could not execute [docker-credential-desktop, get]. Error=2, No such file or directory
+2024-10-01T16:43:08.531+04:00  INFO 35823 --- [    Test worker] tc.testcontainers/ryuk:0.9.0             : Container testcontainers/ryuk:0.9.0 is starting: bfb72ff2c8fa4c4e7c46328bd2f02f9a172322ba0dd9835cffbfd16e14849e71
+2024-10-01T16:43:09.165+04:00  INFO 35823 --- [    Test worker] tc.testcontainers/ryuk:0.9.0             : Container testcontainers/ryuk:0.9.0 started in PT0.840454S
+2024-10-01T16:43:09.172+04:00  INFO 35823 --- [    Test worker] o.t.utility.RyukResourceReaper           : Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-10-01T16:43:09.173+04:00  INFO 35823 --- [    Test worker] org.testcontainers.DockerClientFactory   : Checking the system...
+2024-10-01T16:43:09.173+04:00  INFO 35823 --- [    Test worker] org.testcontainers.DockerClientFactory   : ✔︎ Docker server version should be at least 1.6.0
+2024-10-01T16:43:09.174+04:00  INFO 35823 --- [    Test worker] tc.wiremock/wiremock:2.35.0              : Creating container for image: wiremock/wiremock:2.35.0
+2024-10-01T16:43:09.209+04:00  INFO 35823 --- [    Test worker] tc.wiremock/wiremock:2.35.0              : Container wiremock/wiremock:2.35.0 is starting: b62c3e58b52ef7dff0ad6e65d1d3942c3398ab02d149e7c1ceba5f369f6186f7
+2024-10-01T16:43:09.480+04:00  INFO 35823 --- [    Test worker] o.t.c.wait.strategy.HttpWaitStrategy     : /gifted_nash: Waiting for 60 seconds for URL: http://localhost:54622/__admin/mappings (where port 54622 maps to container port 8080)
+2024-10-01T16:43:10.773+04:00  INFO 35823 --- [    Test worker] tc.wiremock/wiremock:2.35.0              : Container wiremock/wiremock:2.35.0 started in PT1.598726S
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.9</a> at 1 окт. 2024 г., 16:43:11</p>
+</div>
+</div>
+</body>
+</html>
