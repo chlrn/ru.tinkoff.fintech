@@ -1,2 +1,4 @@
-rootProject.name = 'fj_2024_lesson_2'
+rootProject.name = 'ru-tinkoff-fintech'
+include 'log-execution-time-starter'
+
 
