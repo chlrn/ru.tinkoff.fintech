@@ -6,7 +6,6 @@ import lombok.Data;
 public class ErrorResponse {
 
     private int code;
-  //  private String message;
 
 }
 
