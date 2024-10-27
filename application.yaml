@@ -1,0 +1,17 @@
+spring.application.name=ru-tinkoff-fintech
+spring.main.allow-bean-definition-overriding=true
+spring.jmx.enabled=true
+spring.jmx.default-domain=my.application
+categories.url=https://kudago.com/public-api/v1.4/place-categories
+locations.url=https://kudago.com/public-api/v1.4/locations/
+event.url=https://kudago.com/public-api/v1.4/events/
+
+spring.datasource.url=jdbc:postgresql://localhost:5433/task10
+spring.datasource.username=postgres
+spring.datasource.password=111
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=none
+spring.liquibase.change-log=classpath:task10/changelog/task10.changelog-master.xml
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
